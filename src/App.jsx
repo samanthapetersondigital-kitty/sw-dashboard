@@ -1,36 +1,34 @@
 import { useState } from "react";
 
-const PASSWORD = "sw";
+const PASSWORD = "wie2026";
 
 function PasswordGate({ children }) {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem("bwpp_auth") === "1");
+  const [authed, setAuthed] = useState(() => sessionStorage.getItem("sw_auth") === "1");
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
+
   if (authed) return children;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input === PASSWORD) {
-      sessionStorage.setItem("bwpp_auth", "1");
+      sessionStorage.setItem("sw_auth", "1");
       setAuthed(true);
     } else {
       setError(true);
       setInput("");
     }
   };
+
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh", background: "#060f1a" }}>
       <div style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 12, padding: "40px 48px", minWidth: 320, textAlign: "center" }}>
         <div style={{ fontSize: 22, fontWeight: 700, color: "#fff", marginBottom: 8 }}>Scott Wiener Dashboard</div>
         <div style={{ fontSize: 14, color: "#64748b", marginBottom: 24 }}>Enter password to continue</div>
         <form onSubmit={handleSubmit}>
-          <input
-            type="password"
-            value={input}
-            onChange={(e) => { setInput(e.target.value); setError(false); }}
-            placeholder="Password"
-            autoFocus
-            style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: error ? "1px solid #ef4444" : "1px solid #1e3a5f", background: "#060f1a", color: "#fff", fontSize: 15, marginBottom: 8, boxSizing: "border-box", outline: "none" }}
-          />
+          <input type="password" value={input} onChange={(e) => { setInput(e.target.value); setError(false); }}
+            placeholder="Password" autoFocus
+            style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: error ? "1px solid #ef4444" : "1px solid #1e3a5f", background: "#060f1a", color: "#fff", fontSize: 15, marginBottom: 8, boxSizing: "border-box", outline: "none" }} />
           {error && <div style={{ color: "#ef4444", fontSize: 13, marginBottom: 8 }}>Incorrect password</div>}
           <button type="submit" style={{ width: "100%", padding: "10px 0", borderRadius: 8, background: "#1d4ed8", color: "#fff", border: "none", fontSize: 15, fontWeight: 600, cursor: "pointer", marginTop: 4 }}>Enter</button>
         </form>
@@ -39,488 +37,325 @@ function PasswordGate({ children }) {
   );
 }
 
-// ─── DATA (auto-generated — update weekly) ────────────────────────────────────
+// ─── CLIENT CONFIG ────────────────────────────────────────────────────────────
 const CLIENT = {
-  "name": "Scott Wiener",
-  "cycle": "2025–2026",
-  "lastUpdated": "April 14, 2026",
-  "reportWeek": "Week of 4/13",
-  "reportMonth": "April 2026",
-  "reportQuarter": "Q2 2026"
+  name: "Scott Wiener",
+  cycle: "2025–2026",
+  lastUpdated: "April 14, 2026",
+  reportWeek: "Current Week",
+  reportMonth: "April 2026",
+  reportQuarter: "Q2 2026",
 };
+
+// ─── EMAIL DATA ───────────────────────────────────────────────────────────────
 const EMAIL_TOP_LINES = [
   {
-    "subject": "SW_EM_ONBOARD_NTL_2603_1_1",
-    "sendDate": "4/6",
-    "period": "monthly",
-    "recipients": 929,
-    "opens": 81,
-    "openRate": 8.7,
-    "clicks": 5,
-    "clickRate": 0.5,
-    "unsubs": 0
+    "subject": "SW_EM_EV_90DO_260105_1_1",
+    "sendDate": "1/5/26",
+    "period": "weekly",
+    "recipients": 590,
+    "opens": 299,
+    "openRate": 50.8,
+    "clicks": 61,
+    "clickRate": 10.5,
+    "unsubs": 1
   },
   {
-    "subject": "SW_EM_EV_SF_260403_1_1",
-    "sendDate": "4/3",
-    "period": "monthly",
-    "recipients": 1767,
-    "opens": 308,
-    "openRate": 17.4,
-    "clicks": 83,
-    "clickRate": 4.7,
-    "unsubs": 0
+    "subject": "SW_EM_EN_180DO_260107_1_1",
+    "sendDate": "1/7/26",
+    "period": "weekly",
+    "recipients": 16639,
+    "opens": 3640,
+    "openRate": 21.9,
+    "clicks": 560,
+    "clickRate": 3.4,
+    "unsubs": 61
   },
   {
-    "subject": "SW_EM_PT_365DO_260401_1_1",
-    "sendDate": "4/1",
-    "period": "monthly",
-    "recipients": 18197,
-    "opens": 520,
-    "openRate": 17.2,
-    "clicks": 7883,
-    "clickRate": 2.9,
-    "unsubs": 0
+    "subject": "SW_EM_EV_SF180DO_260108_1_1",
+    "sendDate": "1/8/26",
+    "period": "weekly",
+    "recipients": 5744,
+    "opens": 1332,
+    "openRate": 23.2,
+    "clicks": 91,
+    "clickRate": 1.6,
+    "unsubs": 11
   },
   {
-    "subject": "SW_EM_FR_180DO_260331_3_10",
-    "sendDate": "3/31",
-    "period": "monthly",
-    "recipients": 15746,
-    "opens": 350,
-    "openRate": 19.5,
-    "clicks": 7269,
-    "clickRate": 2.2,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260331_1_8",
-    "sendDate": "3/31",
-    "period": "monthly",
-    "recipients": 15790,
-    "opens": 328,
-    "openRate": 15.9,
-    "clicks": 6576,
+    "subject": "SW_EM_FR_180DO_260109_1_1",
+    "sendDate": "1/9/26",
+    "period": "weekly",
+    "recipients": 10959,
+    "opens": 2378,
+    "openRate": 21.7,
+    "clicks": 230,
     "clickRate": 2.1,
-    "unsubs": 0
+    "unsubs": 41
   },
   {
-    "subject": "SW_EM_FR_180DO_260331_2_9",
-    "sendDate": "3/31",
-    "period": "monthly",
-    "recipients": 15771,
-    "opens": 327,
-    "openRate": 18.0,
-    "clicks": 6899,
-    "clickRate": 2.1,
-    "unsubs": 0
+    "subject": "SW_EM_FR_180DO_260110_1_2",
+    "sendDate": "1/10/26",
+    "period": "weekly",
+    "recipients": 16577,
+    "opens": 3342,
+    "openRate": 20.2,
+    "clicks": 413,
+    "clickRate": 2.5,
+    "unsubs": 55
   },
   {
-    "subject": "SW_EM_FR_180DO_260330_1_7",
-    "sendDate": "3/30",
-    "period": "monthly",
-    "recipients": 15963,
-    "opens": 431,
-    "openRate": 23.1,
-    "clicks": 8119,
-    "clickRate": 2.7,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260329_1_5",
-    "sendDate": "3/29",
-    "period": "monthly",
-    "recipients": 16087,
-    "opens": 478,
-    "openRate": 16.6,
-    "clicks": 7004,
-    "clickRate": 3.0,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260329_2_6",
-    "sendDate": "3/29",
-    "period": "monthly",
-    "recipients": 16076,
-    "opens": 455,
-    "openRate": 18.5,
-    "clicks": 7349,
-    "clickRate": 2.8,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_SPLIT_180DO_2603028_2_4",
-    "sendDate": "3/28",
-    "period": "monthly",
-    "recipients": 16095,
-    "opens": 477,
-    "openRate": 17.6,
-    "clicks": 7207,
-    "clickRate": 3.0,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603028_1_3",
-    "sendDate": "3/28",
-    "period": "monthly",
-    "recipients": 16113,
-    "opens": 699,
-    "openRate": 17.9,
-    "clicks": 7310,
-    "clickRate": 4.3,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603027_1_2",
-    "sendDate": "3/27",
-    "period": "monthly",
-    "recipients": 16193,
-    "opens": 363,
-    "openRate": 15.9,
-    "clicks": 7006,
-    "clickRate": 2.2,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603026_1_1",
-    "sendDate": "3/26",
-    "period": "monthly",
-    "recipients": 16237,
-    "opens": 332,
-    "openRate": 16.4,
-    "clicks": 6991,
-    "clickRate": 2.0,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_PT_180DO_260324_1_1",
-    "sendDate": "3/24",
-    "period": "monthly",
-    "recipients": 16316,
-    "opens": 2886,
-    "openRate": 17.7,
-    "clicks": 565,
-    "clickRate": 3.5,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603021_1_1",
-    "sendDate": "3/21",
-    "period": "monthly",
-    "recipients": 16344,
-    "opens": 599,
-    "openRate": 19.0,
-    "clicks": 7655,
-    "clickRate": 3.7,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603013_1_1",
-    "sendDate": "3/13",
-    "period": "monthly",
-    "recipients": 16269,
-    "opens": 373,
-    "openRate": 21.4,
-    "clicks": 8080,
-    "clickRate": 2.3,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_2603012_1_1",
-    "sendDate": "3/12",
-    "period": "monthly",
-    "recipients": 16319,
-    "opens": 572,
-    "openRate": 18.8,
-    "clicks": 7721,
-    "clickRate": 3.5,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260306_1_2",
-    "sendDate": "3/6",
-    "period": "monthly",
-    "recipients": 16541,
-    "opens": 427,
-    "openRate": 20.1,
-    "clicks": 8050,
-    "clickRate": 2.6,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260306_2_3",
-    "sendDate": "3/6",
-    "period": "monthly",
-    "recipients": 16477,
-    "opens": 367,
-    "openRate": 18.3,
-    "clicks": 7886,
-    "clickRate": 2.2,
-    "unsubs": 0
-  },
-  {
-    "subject": "SW_EM_FR_180DO_260305_1_1",
-    "sendDate": "3/5",
-    "period": "monthly",
-    "recipients": 15955,
-    "opens": 365,
-    "openRate": 21.0,
-    "clicks": 8205,
-    "clickRate": 2.3,
-    "unsubs": 0
+    "subject": "SW_EM_EN_SF_260111_1_1",
+    "sendDate": "1/11/26",
+    "period": "weekly",
+    "recipients": 6304,
+    "opens": 965,
+    "openRate": 15.3,
+    "clicks": 216,
+    "clickRate": 3.4,
+    "unsubs": 179
   }
 ];
+
 const EMAIL_MONTHLY_SUMMARY = {
-  "sends": 53,
-  "totalRecipients": 713249,
-  "avgOpenRate": 19.8,
-  "avgClickRate": 3.4,
-  "totalUnsubs": 0
+  sends: 10,
+  totalRecipients: 90489,
+  avgOpenRate: 23.1,
+  avgClickRate: 3.5,
+  totalUnsubs: 507,
 };
-const EMAIL_QUARTERLY_SUMMARY = {
-  "sends": 53,
-  "totalRecipients": 713249,
-  "avgOpenRate": 19.8,
-  "avgClickRate": 3.4,
-  "totalUnsubs": 0
-};
+const EMAIL_QUARTERLY_SUMMARY = EMAIL_MONTHLY_SUMMARY;
+
+// ─── LIST SIZE ────────────────────────────────────────────────────────────────
 const LIST_SIZE = [
   {
-    "label": "30-Day Openers",
-    "key": "30DO",
+    "label": "Update segment sizes weekly. Yellow cells are manual inputs.",
+    "key": "UPDATE",
     "current": 0,
     "prev": 0,
-    "change": 0.0,
+    "change": 0,
     "goal": null
   },
   {
-    "label": "90-Day Openers",
-    "key": "90DO",
+    "label": "Segment Name",
+    "key": "SEGMEN",
     "current": 0,
     "prev": 0,
-    "change": 0.0,
+    "change": 0,
     "goal": null
   },
   {
-    "label": "180-Day Openers",
-    "key": "180DO",
+    "label": "Email \u2014 180DO",
+    "key": "EMAIL\u2014",
     "current": 0,
     "prev": 0,
-    "change": 0.0,
+    "change": 0,
     "goal": null
   },
   {
-    "label": "Monthly New to List",
-    "key": "1MNTL",
+    "label": "Email \u2014 90DO",
+    "key": "EMAIL\u2014",
     "current": 0,
     "prev": 0,
-    "change": 0.0,
+    "change": 0,
     "goal": null
   },
   {
-    "label": "All Subscribed",
-    "key": "ALL",
+    "label": "Email \u2014 365 SF/Local",
+    "key": "EMAIL\u2014",
     "current": 0,
     "prev": 0,
-    "change": 0.0,
+    "change": 0,
+    "goal": null
+  },
+  {
+    "label": "Texting \u2014 NTL",
+    "key": "TEXTIN",
+    "current": 0,
+    "prev": 0,
+    "change": 0,
     "goal": null
   }
 ];
+
+// ─── FINANCES ─────────────────────────────────────────────────────────────────
 const FINANCES = [
   {
-    "period": "Nov 2025",
+    "period": "2025-11",
     "type": "month",
     "totalActBlue": 298525.0,
     "digitalRaise": 3968.0
   },
   {
-    "period": "Dec 2025",
+    "period": "2025-12",
     "type": "month",
     "totalActBlue": 270667.18,
     "digitalRaise": 17662.0
   },
   {
-    "period": "Jan 2026",
+    "period": "2026-01",
     "type": "month",
     "totalActBlue": 205677.17,
     "digitalRaise": 7119.0
   },
   {
-    "period": "Feb 2026",
+    "period": "2026-02",
     "type": "month",
     "totalActBlue": 275088.85,
     "digitalRaise": 3703.0
   },
   {
-    "period": "Mar 2026",
+    "period": "2026-03",
     "type": "month",
     "totalActBlue": 221530.0,
     "digitalRaise": 12221.0
   },
   {
-    "period": "Apr 2026",
+    "period": "2026-04",
     "type": "month",
     "totalActBlue": 22664.0,
     "digitalRaise": 1502.0
-  },
-  {
-    "period": "Q2 2026 (QTD)",
-    "type": "qtd",
-    "totalActBlue": 1294152.2,
-    "digitalRaise": 46175.0
   }
 ];
-const DIGITAL_PCT_MIN = 25;
-const DIGITAL_PCT_MAX = 30;
+const DIGITAL_PCT_MIN = 10;
+const DIGITAL_PCT_MAX = 15;
+
 const FINANCE_MONTHLY = {
-  "period": "April 2026 (MTD)",
-  "totalActBlue": 22664.0,
-  "digitalRaise": 1502.0,
-  "projection": 29463
+  period: "April 2026",
+  totalActBlue: 22664.0,
+  digitalRaise: 1502.0,
+  projection: 215692,
 };
 const FINANCE_QUARTERLY = {
-  "period": "Q2 2026 (QTD)",
-  "totalActBlue": 1294152.2,
-  "digitalRaise": 46175.0,
-  "projection": 1488275
+  period: "Q2 2026",
+  totalActBlue: 1294152.2,
+  digitalRaise: 46175.0,
+  projection: 1488275,
 };
+
+// ─── ACQUISITION ROI ──────────────────────────────────────────────────────────
 const ACQUISITION_ROI = [];
+
+// ─── TEXTING ROI ──────────────────────────────────────────────────────────────
 const TEXTING_ROI = [
   {
-    "campaign": "250913_SW Masking Bill",
-    "sendDate": "9/13",
-    "period": "monthly",
-    "sent": 4749,
-    "delivered": 4749,
-    "responses": 0,
-    "optOuts": 430,
-    "donations": 0,
-    "raised": 0
-  },
-  {
-    "campaign": "SW EOQ #2",
-    "sendDate": "9/30",
-    "period": "monthly",
-    "sent": 926,
-    "delivered": 926,
-    "responses": 0,
-    "optOuts": 41,
-    "donations": 0,
-    "raised": 0
-  },
-  {
-    "campaign": "251022_Launch Donors",
-    "sendDate": "10/22",
-    "period": "monthly",
-    "sent": 4297,
-    "delivered": 4297,
-    "responses": 0,
-    "optOuts": 175,
-    "donations": 0,
-    "raised": 0
-  },
-  {
-    "campaign": "251025 KICKOFF INVITE",
-    "sendDate": "10/25",
-    "period": "monthly",
-    "sent": 16630,
-    "delivered": 16630,
-    "responses": 0,
-    "optOuts": 1237,
-    "donations": 0,
-    "raised": 0
-  },
-  {
-    "campaign": "Kickoff - TURNOUT LAUNCH",
-    "sendDate": "10/29",
-    "period": "monthly",
-    "sent": 18,
-    "delivered": 18,
+    "campaign": "Campaign Name",
+    "sendDate": "Send Date",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
     "responses": 0,
     "optOuts": 0,
     "donations": 0,
-    "raised": 0
+    "raised": 0.0
+  },
+  {
+    "campaign": "250913_SW Masking Bill",
+    "sendDate": "2025-09-13",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 5953,
+    "optOuts": 0,
+    "donations": 0,
+    "raised": 4749.0
+  },
+  {
+    "campaign": "SW EOQ #2",
+    "sendDate": "2025-09-30",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 4787,
+    "optOuts": 0,
+    "donations": 0,
+    "raised": 926.0
+  },
+  {
+    "campaign": "251022_Launch Donors",
+    "sendDate": "2025-10-22",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 5446,
+    "optOuts": 0,
+    "donations": 0,
+    "raised": 4297.0
+  },
+  {
+    "campaign": "251025 KICKOFF INVITE",
+    "sendDate": "2025-10-25",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 19206,
+    "optOuts": 0,
+    "donations": 0,
+    "raised": 16630.0
+  },
+  {
+    "campaign": "Kickoff - TURNOUT LAUNCH",
+    "sendDate": "2025-10-29",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 281,
+    "optOuts": 0,
+    "donations": 0,
+    "raised": 18.0
   },
   {
     "campaign": "Congressional Forum Invite 251223",
-    "sendDate": "12/23",
-    "period": "monthly",
-    "sent": 1592,
-    "delivered": 1592,
-    "responses": 0,
-    "optOuts": 43,
+    "sendDate": "2025-12-23",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 1872,
+    "optOuts": 0,
     "donations": 0,
-    "raised": 0
+    "raised": 1592.0
   },
   {
     "campaign": "260110_SF ALL_Canvass Invite",
-    "sendDate": "1/10",
-    "period": "monthly",
-    "sent": 11643,
-    "delivered": 11643,
-    "responses": 0,
-    "optOuts": 304,
+    "sendDate": "2026-01-10",
+    "period": "weekly",
+    "sent": 0,
+    "delivered": 0,
+    "responses": 13759,
+    "optOuts": 0,
     "donations": 0,
-    "raised": 0
-  },
-  {
-    "campaign": "260116_Canvass Tomorrow!",
-    "sendDate": "1/16",
-    "period": "monthly",
-    "sent": 10973,
-    "delivered": 10973,
-    "responses": 0,
-    "optOuts": 249,
-    "donations": 0,
-    "raised": 0
+    "raised": 11643.0
   }
 ];
+
+// ─── ADS ──────────────────────────────────────────────────────────────────────
 const META_ADS = [];
-const GOOGLE_ADS = [];
-const GROWTH_CALC = [
+const GOOGLE_ADS = [
   {
-    "metric": "List Growth Rate (MoM)",
-    "value": "—",
-    "benchmark": "+1.5%",
-    "status": "above"
-  },
-  {
-    "metric": "Email Churn Rate",
-    "value": "—",
-    "benchmark": "<0.15%",
-    "status": "above"
-  },
-  {
-    "metric": "Avg Open Rate (30d)",
-    "value": "19.8%",
-    "benchmark": ">14% = Strong",
-    "status": "above"
-  },
-  {
-    "metric": "Avg Click Rate (30d)",
-    "value": "3.4%",
-    "benchmark": ">3.0%",
-    "status": "above"
-  },
-  {
-    "metric": "SMS Opt-Out Rate",
-    "value": "—",
-    "benchmark": "<0.20%",
-    "status": "above"
-  },
-  {
-    "metric": "Digital % of ActBlue",
-    "value": "3.6%",
-    "benchmark": "25–30%",
-    "status": "below"
+    "campaign": "Scott Wiener \u2014 Direct Donate \u2014 March 2026",
+    "period": "weekly",
+    "spend": 0.0,
+    "impressions": 0,
+    "clicks": 30,
+    "ctr": 1518.0,
+    "cpc": 0.0,
+    "conversions": 10,
+    "costPerConv": 311.46
   }
 ];
+
+// ─── GROWTH CALC ──────────────────────────────────────────────────────────────
+const GROWTH_CALC = [
+  { metric: "Avg Open Rate", value: "23.1%", benchmark: ">14% = Strong", status: "above" },
+  { metric: "Avg Click Rate", value: "3.5%", benchmark: ">3.0%", status: "above" },
+  { metric: "Digital % of ActBlue", value: "3.6%", benchmark: "10–15%", status: "below" },
+];
+
 const DEFAULT_HIGHLIGHTS = [
-  "Dashboard auto-generated for Scott Wiener — April 14, 2026",
-  "Update this section with key insights for Week of 4/13",
-  "Add notable email performance observations here",
-  "Add texting campaign highlights here",
-  "Add fundraising milestones or anomalies here"
+  "Dashboard initialized with data through April 14, 2026",
+  "Digital raise: $46,175 (3.6% of total ActBlue)",
+  "Average email open rate: 23.1%",
+  "Total ActBlue raised: $1,294,152",
 ];
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -534,20 +369,22 @@ function openRateColor(r) {
   return "#f87171";
 }
 function openRateBadge(r) {
-  if (r >= 14) return { label: "Strong",  color: "#4ade80", bg: "#052e16", border: "#166534" };
+  if (r >= 14) return { label: "Strong", color: "#4ade80", bg: "#052e16", border: "#166534" };
   if (r >= 10) return { label: "Average", color: "#fbbf24", bg: "#2d1f00", border: "#92400e" };
-  return           { label: "Low",     color: "#f87171", bg: "#3f0f0f", border: "#7f1d1d" };
+  return { label: "Low", color: "#f87171", bg: "#3f0f0f", border: "#7f1d1d" };
 }
 function digitalPctStatus(p) {
-  if (p >= DIGITAL_PCT_MIN && p <= DIGITAL_PCT_MAX) return { color: "#4ade80", label: "On Target",    bg: "#052e16", border: "#166534" };
-  if (p > DIGITAL_PCT_MAX)                          return { color: "#60a5fa", label: "Above Target", bg: "#0c1f3f", border: "#1d4ed8" };
-  return                                                   { color: "#f87171", label: "Below Target", bg: "#3f0f0f", border: "#7f1d1d" };
+  if (p >= DIGITAL_PCT_MIN && p <= DIGITAL_PCT_MAX) return { color: "#4ade80", label: "On Target", bg: "#052e16", border: "#166534" };
+  if (p > DIGITAL_PCT_MAX) return { color: "#60a5fa", label: "Above Target", bg: "#0c1f3f", border: "#1d4ed8" };
+  return { color: "#f87171", label: "Below Target", bg: "#3f0f0f", border: "#7f1d1d" };
 }
+
 function Delta({ val }) {
   if (val == null) return null;
   const up = val >= 0;
   return <span style={{ color: up ? "#22c55e" : "#ef4444", fontWeight: 600, fontSize: 13 }}>{up ? "▲" : "▼"} {Math.abs(val).toFixed(2)}%</span>;
 }
+
 function GoalBar({ current, goal }) {
   if (!goal) return null;
   const pct = Math.min((current / goal) * 100, 100);
@@ -560,6 +397,7 @@ function GoalBar({ current, goal }) {
     </div>
   );
 }
+
 function DigitalPctBar({ pct }) {
   const status = digitalPctStatus(pct);
   const barWidth = Math.min(pct / 50 * 100, 100);
@@ -584,11 +422,10 @@ function DigitalPctBar({ pct }) {
   );
 }
 
-// ─── PERIOD TOGGLE ────────────────────────────────────────────────────────────
 function PeriodToggle({ active, onChange }) {
   const options = [
-    { id: "weekly",    label: "Weekly",    sub: CLIENT.reportWeek },
-    { id: "monthly",   label: "Monthly",   sub: CLIENT.reportMonth },
+    { id: "weekly", label: "Weekly", sub: CLIENT.reportWeek },
+    { id: "monthly", label: "Monthly", sub: CLIENT.reportMonth },
     { id: "quarterly", label: "Quarterly", sub: CLIENT.reportQuarter },
   ];
   return (
@@ -597,7 +434,7 @@ function PeriodToggle({ active, onChange }) {
         <button key={o.id} onClick={() => onChange(o.id)} style={{
           background: active === o.id ? "#1d4ed8" : "#091929",
           border: `1px solid ${active === o.id ? "#3b82f6" : "#1e3a5f"}`,
-          borderRadius: 8, padding: "8px 18px", cursor: "pointer", textAlign: "left", transition: "all 0.15s",
+          borderRadius: 8, padding: "8px 18px", cursor: "pointer", textAlign: "left",
         }}>
           <div style={{ fontSize: 13, fontWeight: 600, color: active === o.id ? "#fff" : "#94a3b8", fontFamily: "'Sora', sans-serif" }}>{o.label}</div>
           <div style={{ fontSize: 11, color: active === o.id ? "#93c5fd" : "#475569" }}>{o.sub}</div>
@@ -607,7 +444,6 @@ function PeriodToggle({ active, onChange }) {
   );
 }
 
-// ─── SUMMARY CALLOUT ──────────────────────────────────────────────────────────
 function SummaryCallout({ label, children }) {
   return (
     <div style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 12, padding: "16px 22px", marginBottom: 20 }}>
@@ -616,6 +452,7 @@ function SummaryCallout({ label, children }) {
     </div>
   );
 }
+
 function SummaryItem({ label, value, color }) {
   return (
     <div>
@@ -625,12 +462,11 @@ function SummaryItem({ label, value, color }) {
   );
 }
 
-// ─── SECTION ──────────────────────────────────────────────────────────────────
 function Section({ title, subtitle, children }) {
   return (
     <div style={{ marginBottom: 48 }}>
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 22, fontWeight: 700, color: "#e2e8f0", margin: 0, letterSpacing: "-0.2px" }}>{title}</h2>
+        <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 22, fontWeight: 700, color: "#e2e8f0", margin: 0 }}>{title}</h2>
         {subtitle && <p style={{ margin: "4px 0 0", fontSize: 13, color: "#64748b" }}>{subtitle}</p>}
       </div>
       {children}
@@ -638,11 +474,10 @@ function Section({ title, subtitle, children }) {
   );
 }
 
-// ─── TABLE ────────────────────────────────────────────────────────────────────
 function Table({ headers, rows, alignRight = [] }) {
   return (
     <div style={{ overflowX: "auto", borderRadius: 12, border: "1px solid #1e3a5f" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, fontFamily: "'Inter', sans-serif" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
         <thead>
           <tr style={{ background: "#0c2340" }}>
             {headers.map((h, i) => (
@@ -664,7 +499,6 @@ function Table({ headers, rows, alignRight = [] }) {
   );
 }
 
-// ─── STAT CARD ────────────────────────────────────────────────────────────────
 function StatCard({ label, value, sub, accent }) {
   return (
     <div style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 12, padding: "20px 24px", flex: "1 1 180px", minWidth: 160 }}>
@@ -675,7 +509,6 @@ function StatCard({ label, value, sub, accent }) {
   );
 }
 
-// ─── EDITABLE HIGHLIGHTS ──────────────────────────────────────────────────────
 function EditableHighlights({ highlights, onChange }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(highlights.join("\n"));
@@ -687,15 +520,17 @@ function EditableHighlights({ highlights, onChange }) {
         <div style={{ fontSize: 12, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.06em" }}>Highlights</div>
         {editing ? (
           <div style={{ display: "flex", gap: 8 }}>
-            <button onClick={save} style={{ background: "#1d4ed8", color: "#fff", border: "none", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Save</button>
-            <button onClick={cancel} style={{ background: "#1e3a5f", color: "#94a3b8", border: "none", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer", fontFamily: "'Inter', sans-serif" }}>Cancel</button>
+            <button onClick={save} style={{ background: "#1d4ed8", color: "#fff", border: "none", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer", fontWeight: 600 }}>Save</button>
+            <button onClick={cancel} style={{ background: "#1e3a5f", color: "#94a3b8", border: "none", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer" }}>Cancel</button>
           </div>
         ) : (
-          <button onClick={() => { setDraft(highlights.join("\n")); setEditing(true); }} style={{ background: "transparent", color: "#60a5fa", border: "1px solid #1e4976", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer", fontFamily: "'Inter', sans-serif" }}>Edit</button>
+          <button onClick={() => { setDraft(highlights.join("\n")); setEditing(true); }} style={{ background: "transparent", color: "#60a5fa", border: "1px solid #1e4976", borderRadius: 6, padding: "5px 14px", fontSize: 12, cursor: "pointer" }}>&#9998; Edit</button>
         )}
       </div>
       {editing ? (
-        <textarea value={draft} onChange={e => setDraft(e.target.value)} style={{ width: "100%", background: "#060f1a", border: "1px solid #1e4976", borderRadius: 8, color: "#e2e8f0", padding: "12px", fontSize: 13, fontFamily: "'Inter', sans-serif", lineHeight: 1.9, resize: "vertical", minHeight: 140, outline: "none", boxSizing: "border-box" }} placeholder="One highlight per line..." />
+        <textarea value={draft} onChange={e => setDraft(e.target.value)}
+          style={{ width: "100%", background: "#060f1a", border: "1px solid #1e4976", borderRadius: 8, color: "#e2e8f0", padding: "12px", fontSize: 13, lineHeight: 1.9, resize: "vertical", minHeight: 140, outline: "none", boxSizing: "border-box" }}
+          placeholder="One highlight per line..." />
       ) : (
         <ul style={{ margin: 0, paddingLeft: 20, color: "#94a3b8", fontSize: 13, lineHeight: 2.1 }}>
           {highlights.map((h, i) => <li key={i}>{h}</li>)}
@@ -705,45 +540,38 @@ function EditableHighlights({ highlights, onChange }) {
   );
 }
 
-// ─── NAV ──────────────────────────────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: "overview",    label: "Digital Overview" },
-  { id: "email",       label: "Email" },
-  { id: "listsize",    label: "List Size" },
-  { id: "finances",    label: "Finances" },
-  { id: "acquisition", label: "Acquisition ROI" },
-  { id: "texting",     label: "Texting ROI" },
-  { id: "ads",         label: "Ad Reporting" },
-  { id: "growth",      label: "Growth" },
+  { id: "overview", label: "Digital Overview" },
+  { id: "email", label: "Email" },
+  { id: "listsize", label: "List Size" },
+  { id: "finances", label: "Finances" },
+  { id: "texting", label: "Texting ROI" },
+  { id: "ads", label: "Ad Reporting" },
+  { id: "growth", label: "Growth" },
 ];
 
-// ─── MAIN APP ─────────────────────────────────────────────────────────────────
 export default function Dashboard() {
   const [active, setActive] = useState("overview");
   const [period, setPeriod] = useState("weekly");
   const [highlights, setHighlights] = useState(DEFAULT_HIGHLIGHTS);
+
   const scrollTo = (id) => {
     setActive(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const emailRows   = period === "weekly"    ? EMAIL_TOP_LINES.filter(r => r.period === "weekly")
-                    : period === "monthly"   ? EMAIL_TOP_LINES.filter(r => ["weekly","monthly"].includes(r.period))
-                    : EMAIL_TOP_LINES;
-  const textingRows = TEXTING_ROI.filter(r => period === "weekly" ? r.period === "weekly" : period === "monthly" ? ["weekly","monthly"].includes(r.period) : true);
-  const metaRows    = META_ADS.filter(r => period === "weekly" ? r.period === "weekly" : period === "monthly" ? ["weekly","monthly"].includes(r.period) : true);
-  const googleRows  = GOOGLE_ADS.filter(r => period === "weekly" ? r.period === "weekly" : period === "monthly" ? ["weekly","monthly"].includes(r.period) : true);
-  const acquisRows  = ACQUISITION_ROI.filter(r => period === "weekly" ? r.period === "weekly" : period === "monthly" ? ["weekly","monthly"].includes(r.period) : true);
-  const financeRows = period === "quarterly" ? FINANCES : FINANCES.filter(r => r.type === "month");
+  const emailRows = EMAIL_TOP_LINES.slice(0, period === "weekly" ? 5 : 10);
+  const textingRows = TEXTING_ROI;
+  const metaRows = META_ADS;
+  const googleRows = GOOGLE_ADS;
 
-  const totalActBlue = FINANCES.filter(r => r.type === "month").reduce((s, r) => s + r.totalActBlue, 0);
-  const totalDigital = FINANCES.filter(r => r.type === "month").reduce((s, r) => s + r.digitalRaise, 0);
-  const overallPct   = totalActBlue > 0 ? (totalDigital / totalActBlue) * 100 : 0;
+  const financeRows = FINANCES;
+  const totalActBlue = FINANCES.reduce((s, r) => s + r.totalActBlue, 0);
+  const totalDigital = FINANCES.reduce((s, r) => s + r.digitalRaise, 0);
+  const overallPct = totalActBlue > 0 ? (totalDigital / totalActBlue) * 100 : 0;
   const overallStatus = digitalPctStatus(overallPct);
 
   const periodLabel = period === "weekly" ? CLIENT.reportWeek : period === "monthly" ? CLIENT.reportMonth : CLIENT.reportQuarter;
-
-  const initials = CLIENT.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
 
   return (
     <PasswordGate>
@@ -760,10 +588,9 @@ export default function Dashboard() {
           .badge-below { background: #3f0f0f; color: #f87171; border: 1px solid #7f1d1d; }
         `}</style>
 
-        {/* HEADER */}
         <header style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(6,15,26,0.96)", backdropFilter: "blur(12px)", borderBottom: "1px solid #1e3a5f", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, fontWeight: 800, fontFamily: "'Sora', sans-serif", color: "#fff", flexShrink: 0 }}>{initials}</div>
+            <div style={{ width: 36, height: 36, borderRadius: 8, background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, fontWeight: 800, fontFamily: "'Sora', sans-serif", color: "#fff" }}>{"SW"}</div>
             <div>
               <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 15, color: "#e2e8f0", lineHeight: 1.1 }}>{CLIENT.name}</div>
               <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.06em" }}>{CLIENT.cycle} CAMPAIGN REPORT</div>
@@ -772,7 +599,7 @@ export default function Dashboard() {
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div style={{ display: "flex", background: "#091929", border: "1px solid #1e3a5f", borderRadius: 8, overflow: "hidden" }}>
               {["weekly","monthly","quarterly"].map(p => (
-                <button key={p} onClick={() => setPeriod(p)} style={{ background: period === p ? "#1d4ed8" : "transparent", border: "none", color: period === p ? "#fff" : "#64748b", padding: "6px 14px", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "'Inter', sans-serif", textTransform: "capitalize", transition: "all 0.15s" }}>{p}</button>
+                <button key={p} onClick={() => setPeriod(p)} style={{ background: period === p ? "#1d4ed8" : "transparent", border: "none", color: period === p ? "#fff" : "#64748b", padding: "6px 14px", fontSize: 12, fontWeight: 600, cursor: "pointer", textTransform: "capitalize" }}>{p}</button>
               ))}
             </div>
             <div style={{ fontSize: 12, color: "#475569" }}>Updated <span style={{ color: "#60a5fa" }}>{CLIENT.lastUpdated}</span></div>
@@ -780,68 +607,167 @@ export default function Dashboard() {
         </header>
 
         <div style={{ display: "flex" }}>
-          {/* SIDEBAR */}
           <nav style={{ width: 200, flexShrink: 0, position: "sticky", top: 64, height: "calc(100vh - 64px)", overflowY: "auto", borderRight: "1px solid #1e3a5f", padding: "24px 0", background: "#07121e" }}>
             {NAV_ITEMS.map(item => (
               <div key={item.id} className="nav-item" onClick={() => scrollTo(item.id)} style={{ padding: "9px 24px", fontSize: 13, fontWeight: active === item.id ? 600 : 400, color: active === item.id ? "#60a5fa" : "#64748b", borderLeft: active === item.id ? "2px solid #3b82f6" : "2px solid transparent" }}>
                 {item.label}
               </div>
             ))}
-            <div style={{ margin: "24px 24px 0", padding: "12px 16px", background: "#0c2340", borderRadius: 8, border: "1px solid #1e3a5f" }}>
-              <div style={{ fontSize: 10, color: "#475569", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>Viewing</div>
-              <div style={{ fontSize: 12, color: "#94a3b8", textTransform: "capitalize", fontWeight: 600 }}>{period}</div>
-              <div style={{ fontSize: 11, color: "#475569", marginTop: 2 }}>{periodLabel}</div>
-            </div>
           </nav>
 
-          <main style={{ flex: 1, padding: "40px 48px", maxWidth: "calc(100% - 200px)", overflowX: "hidden" }}>
+          <main style={{ flex: 1, padding: "40px 48px", maxWidth: "calc(100% - 200px)" }}>
 
-            {/* DIGITAL OVERVIEW */}
             <div id="overview">
               <Section title="Digital Overview" subtitle={`${periodLabel} · ${CLIENT.lastUpdated}`}>
                 <PeriodToggle active={period} onChange={setPeriod} />
-                {period === "monthly" && (
-                  <SummaryCallout label={`${CLIENT.reportMonth} — Monthly Summary`}>
-                    <SummaryItem label="Email Sends" value={EMAIL_MONTHLY_SUMMARY.sends} color="#60a5fa" />
-                    <SummaryItem label="Avg Open Rate" value={`${EMAIL_MONTHLY_SUMMARY.avgOpenRate}%`} color="#fbbf24" />
-                    <SummaryItem label="Digital Raised (MTD)" value={fmtD(FINANCE_MONTHLY.digitalRaise)} color="#4ade80" />
-                    <SummaryItem label="% to Projection" value={FINANCE_MONTHLY.projection > 0 ? `${((FINANCE_MONTHLY.totalActBlue / FINANCE_MONTHLY.projection) * 100).toFixed(1)}%` : "—"} color="#a78bfa" />
-                  </SummaryCallout>
-                )}
-                {period === "quarterly" && (
-                  <SummaryCallout label={`${CLIENT.reportQuarter} — Quarterly Summary`}>
-                    <SummaryItem label="Email Sends" value={EMAIL_QUARTERLY_SUMMARY.sends} color="#60a5fa" />
-                    <SummaryItem label="Avg Open Rate" value={`${EMAIL_QUARTERLY_SUMMARY.avgOpenRate}%`} color="#fbbf24" />
-                    <SummaryItem label="Digital Raised (QTD)" value={fmtD(FINANCE_QUARTERLY.digitalRaise)} color="#4ade80" />
-                    <SummaryItem label="Total ActBlue (QTD)" value={fmtD(FINANCE_QUARTERLY.totalActBlue)} color="#a78bfa" />
-                    <SummaryItem label="% to Q Projection" value={FINANCE_QUARTERLY.projection > 0 ? `${((FINANCE_QUARTERLY.totalActBlue / FINANCE_QUARTERLY.projection) * 100).toFixed(1)}%` : "—"} color="#fb923c" />
-                  </SummaryCallout>
-                )}
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 24 }}>
-                  <StatCard label="Total Subscribers" value={fmt(LIST_SIZE.find(r => r.key === "ALL")?.current || 0)} sub={LIST_SIZE.find(r => r.key === "ALL")?.goal ? `Goal: ${fmt(LIST_SIZE.find(r => r.key === "ALL").goal)}` : null} />
+                  <StatCard label="Total ActBlue" value={fmtD(totalActBlue)} sub="All time" />
+                  <StatCard label="Digital Raised" value={fmtD(totalDigital)} sub={`${overallPct.toFixed(1)}% of ActBlue`} accent="#34d399" />
                   <StatCard label="Avg Open Rate" value={`${EMAIL_MONTHLY_SUMMARY.avgOpenRate}%`} sub="14%+ = Strong" accent="#fbbf24" />
-                  <StatCard label={period === "quarterly" ? "Digital Raised (QTD)" : "Digital Raised (MTD)"} value={period === "quarterly" ? fmtD(FINANCE_QUARTERLY.digitalRaise) : fmtD(FINANCE_MONTHLY.digitalRaise)} sub={`${((period === "quarterly" ? FINANCE_QUARTERLY.digitalRaise / (FINANCE_QUARTERLY.totalActBlue || 1) : FINANCE_MONTHLY.digitalRaise / (FINANCE_MONTHLY.totalActBlue || 1)) * 100).toFixed(1)}% of ActBlue`} accent="#34d399" />
-                  <StatCard label="SMS List" value={fmt(LIST_SIZE.find(r => r.key === "180DO")?.current || 0)} sub="180-Day Openers" accent="#fb923c" />
-                  <StatCard label="Total Ad Spend" value={fmtD(META_ADS.reduce((s,r) => s + (r.spend||0), 0) + GOOGLE_ADS.reduce((s,r) => s + (r.spend||0), 0))} sub="Meta + Google" accent="#f472b6" />
+                  <StatCard label="Email Sends" value={EMAIL_MONTHLY_SUMMARY.sends} sub="Total tracked" accent="#a78bfa" />
                 </div>
                 <EditableHighlights highlights={highlights} onChange={setHighlights} />
               </Section>
             </div>
 
-            {/* EMAIL */}
             <div id="email">
-              <Section title="Email" subtitle="Broadcast performance from EveryAction">
+              <Section title="Email" subtitle="Broadcast performance">
                 <PeriodToggle active={period} onChange={setPeriod} />
-                {period === "monthly" && (
-                  <SummaryCallout label={`${CLIENT.reportMonth} — Email Summary`}>
-                    <SummaryItem label="Total Sends" value={EMAIL_MONTHLY_SUMMARY.sends} />
-                    <SummaryItem label="Total Recipients" value={fmt(EMAIL_MONTHLY_SUMMARY.totalRecipients)} />
-                    <SummaryItem label="Avg Open Rate" value={`${EMAIL_MONTHLY_SUMMARY.avgOpenRate}%`} color={openRateColor(EMAIL_MONTHLY_SUMMARY.avgOpenRate)} />
-                    <SummaryItem label="Avg Click Rate" value={`${EMAIL_MONTHLY_SUMMARY.avgClickRate}%`} color="#a78bfa" />
-                    <SummaryItem label="Total Unsubs" value={EMAIL_MONTHLY_SUMMARY.totalUnsubs} color="#f87171" />
-                  </SummaryCallout>
-                )}
-                {period === "quarterly" && (
-                  <SummaryCallout label={`${CLIENT.reportQuarter} — Email Summary`}>
-                    <SummaryItem label="Total Sends" value={EMAIL_QUARTERLY_SUMMARY.sends} />
-                    <SummaryItem label="Total Recipients" value={fmt(EMAIL_QUARTERLY_SUMMARY.tot
+                {emailRows.length > 0 ? (
+                  <Table
+                    headers={["Subject / Email Name", "Date", "Recipients", "Opens", "Open Rate", "Rating", "Clicks", "Click Rate", "Unsubs"]}
+                    alignRight={[2,3,4,6,7,8]}
+                    rows={emailRows.map(r => {
+                      const badge = openRateBadge(r.openRate);
+                      return [
+                        <span style={{ color: "#e2e8f0", maxWidth: 280, display: "block", overflow: "hidden", textOverflow: "ellipsis" }}>{r.subject}</span>,
+                        r.sendDate, fmt(r.recipients), fmt(r.opens),
+                        <span style={{ color: openRateColor(r.openRate), fontWeight: 600 }}>{fmtP(r.openRate)}</span>,
+                        <span style={{ padding: "2px 9px", borderRadius: 10, fontSize: 11, fontWeight: 600, background: badge.bg, color: badge.color, border: `1px solid ${badge.border}` }}>{badge.label}</span>,
+                        fmt(r.clicks), fmtP(r.clickRate), fmt(r.unsubs),
+                      ];
+                    })}
+                  />
+                ) : <div style={{ color: "#475569", fontSize: 13, padding: "20px 0" }}>No email data available yet.</div>}
+              </Section>
+            </div>
+
+            <div id="listsize">
+              <Section title="List Size" subtitle="Subscriber segment counts">
+                {LIST_SIZE.length > 0 ? (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {LIST_SIZE.map(row => (
+                      <div key={row.key} style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 12, padding: "18px 24px", display: "flex", alignItems: "center", gap: 24 }}>
+                        <div style={{ minWidth: 160 }}>
+                          <div style={{ fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.06em" }}>{row.key}</div>
+                          <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 600, fontSize: 14, color: "#e2e8f0", marginTop: 2 }}>{row.label}</div>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ fontSize: 28, fontWeight: 700, fontFamily: "'Sora', sans-serif", color: "#60a5fa", lineHeight: 1 }}>{fmt(row.current)}</div>
+                          <div style={{ fontSize: 12, color: "#475569", marginTop: 2 }}>prev: {fmt(row.prev)} &nbsp; <Delta val={row.change} /></div>
+                          <GoalBar current={row.current} goal={row.goal} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : <div style={{ color: "#475569", fontSize: 13, padding: "20px 0" }}>No list size data available yet.</div>}
+              </Section>
+            </div>
+
+            <div id="finances">
+              <Section title="Finances" subtitle={`ActBlue fundraising — digital target: ${DIGITAL_PCT_MIN}–${DIGITAL_PCT_MAX}%`}>
+                <PeriodToggle active={period} onChange={setPeriod} />
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 20 }}>
+                  <StatCard label="Total ActBlue" value={fmtD(totalActBlue)} accent="#60a5fa" />
+                  <StatCard label="Digital Raise" value={fmtD(totalDigital)} sub="Email + SMS" accent="#4ade80" />
+                  <div style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 12, padding: "20px 24px", flex: "2 1 260px" }}>
+                    <div style={{ fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>Digital % of ActBlue</div>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+                      <div style={{ fontSize: 26, fontWeight: 700, fontFamily: "'Sora', sans-serif", color: overallStatus.color }}>{overallPct.toFixed(1)}%</div>
+                      <span style={{ padding: "2px 9px", borderRadius: 10, fontSize: 11, fontWeight: 600, background: overallStatus.bg, color: overallStatus.color, border: `1px solid ${overallStatus.border}` }}>{overallStatus.label}</span>
+                    </div>
+                    <DigitalPctBar pct={overallPct} />
+                  </div>
+                </div>
+                <Table
+                  headers={["Period", "Total ActBlue", "Digital Raise", "Digital %", "vs Target"]}
+                  alignRight={[1,2,3]}
+                  rows={financeRows.map(r => {
+                    const pct = r.totalActBlue > 0 ? (r.digitalRaise / r.totalActBlue) * 100 : 0;
+                    const s = digitalPctStatus(pct);
+                    return [
+                      r.period,
+                      <span style={{ color: "#60a5fa" }}>{fmtD(r.totalActBlue)}</span>,
+                      <span style={{ color: "#4ade80" }}>{fmtD(r.digitalRaise)}</span>,
+                      <span style={{ color: s.color, fontWeight: 600 }}>{pct.toFixed(1)}%</span>,
+                      <span style={{ padding: "2px 9px", borderRadius: 10, fontSize: 11, fontWeight: 600, background: s.bg, color: s.color, border: `1px solid ${s.border}` }}>{s.label}</span>,
+                    ];
+                  })}
+                />
+              </Section>
+            </div>
+
+            <div id="texting">
+              <Section title="Texting ROI" subtitle="SMS campaign performance">
+                {textingRows.length > 0 ? (
+                  <Table
+                    headers={["Campaign", "Date", "Delivered", "Link Clicks", "Revenue"]}
+                    alignRight={[2,3,4]}
+                    rows={textingRows.map(r => [
+                      r.campaign, r.sendDate, fmt(r.delivered), fmt(r.responses),
+                      <span style={{ color: "#4ade80" }}>{fmtD(r.raised)}</span>,
+                    ])}
+                  />
+                ) : <div style={{ color: "#475569", fontSize: 13, padding: "20px 0" }}>No texting data available yet.</div>}
+              </Section>
+            </div>
+
+            <div id="ads">
+              <Section title="Ad Reporting" subtitle="Meta Ads + Google Ads">
+                {googleRows.length > 0 ? (
+                  <>
+                    <div style={{ marginBottom: 8, fontSize: 11, color: "#475569", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>Google Ads</div>
+                    <Table
+                      headers={["Campaign", "Spend", "Impressions", "Clicks", "CTR", "CPC", "Conversions", "Cost/Conv."]}
+                      alignRight={[1,2,3,4,5,6,7]}
+                      rows={googleRows.map(r => [
+                        r.campaign, fmtD(r.spend), fmt(r.impressions), fmt(r.clicks),
+                        fmtP(r.ctr), fmtD(r.cpc), fmt(r.conversions), fmtD(r.costPerConv),
+                      ])}
+                    />
+                  </>
+                ) : <div style={{ color: "#475569", fontSize: 13, padding: "20px 0" }}>No ad data available yet.</div>}
+              </Section>
+            </div>
+
+            <div id="growth">
+              <Section title="Growth" subtitle="Key metrics vs benchmarks">
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {GROWTH_CALC.map((row, i) => (
+                    <div key={i} style={{ background: "#091929", border: "1px solid #1e3a5f", borderRadius: 10, padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <div style={{ fontSize: 14, color: "#cbd5e1" }}>{row.metric}</div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                        <div style={{ textAlign: "right" }}>
+                          <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 18, color: "#60a5fa" }}>{row.value}</div>
+                          <div style={{ fontSize: 11, color: "#475569" }}>Benchmark: {row.benchmark}</div>
+                        </div>
+                        <span className={row.status === "above" ? "badge-above" : "badge-below"} style={{ padding: "4px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600, whiteSpace: "nowrap" }}>
+                          {row.status === "above" ? "✓ On Track" : "↓ Needs Attention"}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            </div>
+
+            <div style={{ borderTop: "1px solid #1e3a5f", paddingTop: 24, marginTop: 24, fontSize: 12, color: "#334155", textAlign: "center" }}>
+              Report generated for {CLIENT.name} · {CLIENT.cycle} · {CLIENT.lastUpdated} · Confidential
+            </div>
+
+          </main>
+        </div>
+      </div>
+    </PasswordGate>
+  );
+}
